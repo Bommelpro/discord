@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import asyncio
+import os
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -95,4 +96,4 @@ async def on_command_error(ctx, error):
     elif isinstance(error, commands.MissingRequiredArgument):
         await ctx.send(f'❌ Missing argument: `{error.param.name}`')
 
-bot.run('TOKEN')
+bot.run(os.getenv('TOKEN'))
